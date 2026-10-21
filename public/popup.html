@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Intentional Web</title>
+<link rel="stylesheet" href="ui.css"><style>body{width:320px}</style></head>
+<body><div class="wrap">
+  <header class="app-header">
+    <svg class="app-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+      <path d="M12 7.5v5l3.2 1.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    <h1>Intentional Web</h1>
+  </header>
+
+  <section class="card">
+    <div class="card-row">
+      <label for="iw-enabled"><strong>Calm supported sites</strong><span id="iw-status" role="status">Loading…</span></label>
+      <span class="switch"><input id="iw-enabled" type="checkbox" role="switch"><i></i></span>
+    </div>
+  </section>
+
+  <section class="card" id="iw-session-card">
+    <div class="card-row card-row--tight"><strong>Session</strong></div>
+
+    <div id="iw-session-active" class="session-active" hidden>
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+          <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+          <circle id="iw-ring-progress" class="ring-progress" cx="60" cy="60" r="52"></circle>
+        </svg>
+        <div class="ring-label">
+          <span id="iw-session-time" class="time" role="status">00:00</span>
+          <span class="time-caption">remaining</span>
+        </div>
+      </div>
+      <button id="iw-session-end" type="button" class="btn-ghost full">End session</button>
+    </div>
+
+    <div id="iw-session-start-row" class="session-start">
+      <div class="segmented" role="group" aria-label="Session duration">
+        <button type="button" class="seg" data-minutes="10">10m</button>
+        <button type="button" class="seg" data-minutes="20">20m</button>
+        <button type="button" class="seg" data-minutes="30" aria-pressed="true">30m</button>
+        <button type="button" class="seg" data-minutes="45">45m</button>
+        <button type="button" class="seg" data-minutes="custom">Custom</button>
+      </div>
+      <input id="iw-session-custom" type="number" min="1" placeholder="Minutes" aria-label="Custom session length in minutes" hidden />
+      <button id="iw-session-start" type="button" class="btn-primary full">Start session</button>
+      <p id="iw-session-status" class="status-line" role="status">Loading…</p>
+    </div>
+  </section>
+
+  <button id="iw-open-options" type="button" class="btn-ghost full">Open settings</button>
+</div><script src="popup.js"></script></body></html>

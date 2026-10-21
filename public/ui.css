@@ -1,0 +1,75 @@
+:root {
+  --bg: #e8eeec; --surface: #f6f9f8; --ink: #1d2a29; --muted: #5d6e6b; --line: #c9d5d2; --accent: #3a6d66;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #1a2321; --surface: #222d2b; --ink: #e3ecea; --muted: #93a5a2; --line: #34433f; --accent: #7fb5ac; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+h1 { font-size: 16px; font-weight: 600; margin: 0; }
+p { margin: 0; color: var(--muted); }
+.wrap { padding: 16px; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid var(--line); }
+.row:first-of-type { border-top: 0; }
+.row strong { display: block; font-weight: 500; }
+.row span { color: var(--muted); font-size: 13px; }
+.switch { position: relative; width: 40px; height: 24px; flex: none; }
+.switch input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+.switch i { position: absolute; inset: 0; border-radius: 12px; background: var(--line); transition: background .15s; pointer-events: none; }
+.switch i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--surface); transition: transform .15s; }
+.switch input:checked + i { background: var(--accent); }
+.switch input:checked + i::after { transform: translateX(16px); }
+.switch input:focus-visible + i { outline: 2px solid var(--accent); outline-offset: 2px; }
+button { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+button:hover { border-color: var(--accent); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; }
+select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+input[type="number"] { font: inherit; width: 64px; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; }
+input[type="number"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.session-controls { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+
+/* --- App header --- */
+.app-header { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+.app-icon { width: 20px; height: 20px; color: var(--accent); flex: none; }
+.app-header h1 { font-size: 15px; }
+
+/* --- Cards --- */
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; }
+.card-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.card-row--tight { margin-bottom: 10px; }
+.card-row strong { display: block; font-weight: 500; }
+.card-row span { color: var(--muted); font-size: 13px; }
+
+/* --- Buttons --- */
+.btn-primary { width: auto; background: var(--accent); color: var(--surface); border-color: var(--accent); font-weight: 500; }
+.btn-primary:hover { filter: brightness(1.06); }
+.btn-primary:disabled { opacity: .5; cursor: default; filter: none; }
+.btn-ghost { background: transparent; }
+.full { width: 100%; display: block; text-align: center; }
+
+/* --- Segmented duration picker --- */
+.segmented { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.seg { flex: 1 0 auto; padding: 7px 0; min-width: 44px; text-align: center; font-size: 13px; border-radius: 8px;
+  transition: background-color .12s ease, border-color .12s ease, color .12s ease, transform .08s ease; }
+.seg:active { transform: scale(.96); }
+.seg[aria-pressed="true"] { background: var(--accent); color: var(--surface); border-color: var(--accent); font-weight: 500; }
+input[type="number"]#iw-session-custom { width: 100%; margin-bottom: 10px; }
+.status-line { font-size: 12px; margin-top: 2px; }
+
+/* --- Countdown ring --- */
+.session-active { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 4px 0 2px; }
+.ring-wrap { position: relative; width: 128px; height: 128px; }
+.ring { width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring-track, .ring-progress { fill: none; stroke-width: 9; }
+.ring-track { stroke: var(--line); }
+.ring-progress { stroke: var(--accent); stroke-linecap: round; transition: stroke-dashoffset 1s linear, stroke .3s ease; }
+.ring-progress.low { stroke: #c08a3e; }
+.ring-label { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.time { font-size: 24px; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+.time-caption { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+
+@media (prefers-reduced-motion: reduce) {
+  .switch i, .switch i::after, .seg, .btn-primary, .ring-progress { transition: none; }
+}

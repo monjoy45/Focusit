@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Intentional Web settings</title>
+<link rel="stylesheet" href="ui.css"><style>body{max-width:520px;margin:0 auto}</style></head>
+<body><main class="wrap">
+  <h1>Intentional Web settings</h1>
+  <p>Settings are stored on this device only.</p>
+  <div class="row">
+    <label for="iw-enabled"><strong>Calm supported sites</strong><span>Master switch for YouTube and Instagram.</span></label>
+    <span class="switch"><input id="iw-enabled" type="checkbox" role="switch"><i></i></span>
+  </div>
+  <div class="row">
+    <label for="iw-debug"><strong>Debug logging</strong><span>Print extension activity to the browser console.</span></label>
+    <span class="switch"><input id="iw-debug" type="checkbox" role="switch"><i></i></span>
+  </div>
+  <div class="row">
+    <label for="iw-calm-ui"><strong>Calm UI</strong><span>Reduce motion and tone down notification badges on supported sites.</span></label>
+    <span class="switch"><input id="iw-calm-ui" type="checkbox" role="switch"><i></i></span>
+  </div>
+  <h2 style="font-size:14px;margin:20px 0 0">YouTube</h2>
+  <div class="row">
+    <label for="iw-yt-hide-shorts"><strong>Hide Shorts</strong><span>Hide the Shorts shelf and Shorts-linked recommendations; show a calm screen if you open a Shorts link directly.</span></label>
+    <span class="switch"><input id="iw-yt-hide-shorts" type="checkbox" role="switch"><i></i></span>
+  </div>
+  <div class="row">
+    <label for="iw-yt-recs"><strong>Home recommendations</strong><span>How much of the home feed to show before collapsing the rest behind "Show more". Search results, Subscriptions, and watch pages are never affected.</span></label>
+    <select id="iw-yt-recs">
+      <option value="off">Off — show everything</option>
+      <option value="calm">Calm — show the first rows, then collapse</option>
+      <option value="focus">Focus — collapse immediately</option>
+    </select>
+  </div>
+  <div class="row">
+    <label for="iw-yt-autoplay"><strong>Disable autoplay</strong><span>Hide the in-video "up next" countdown and end-screen suggestions on watch pages. Never affects play, pause, seek, or volume.</span></label>
+    <span class="switch"><input id="iw-yt-autoplay" type="checkbox" role="switch"><i></i></span>
+  </div>
+  <div class="row">
+    <label for="iw-yt-watch-focus"><strong>Focus on the video</strong><span>On watch pages, hide the related-videos list and comments so the video is the page, like a streaming service. Pick your next video from Home, Search, or Subscriptions.</span></label>
+    <span class="switch"><input id="iw-yt-watch-focus" type="checkbox" role="switch"><i></i></span>
+  </div>
+  <div class="row">
+    <label for="iw-yt-subs"><strong>Limit Subscriptions feed (optional)</strong><span>Collapse the Subscriptions feed behind "Show more", the same way home recommendations do. Off by default.</span></label>
+    <span class="switch"><input id="iw-yt-subs" type="checkbox" role="switch"><i></i></span>
+  </div>
+  <h2 style="font-size:14px;margin:20px 0 0">Instagram</h2>
+  <div class="row">
+    <label for="iw-ig-hide-reels"><strong>Hide Reels</strong><span>Hide the Reels nav entry and Reels-linked posts; show a calm screen if you open a Reels link directly.</span></label>
+    <span class="switch"><input id="iw-ig-hide-reels" type="checkbox" role="switch"><i></i></span>
+  </div>
+  <h2 style="font-size:14px;margin:20px 0 0">Session</h2>
+  <div class="row">
+    <label for="iw-session-warning"><strong>Warning before session ends</strong><span>How many minutes ahead of the end to show a heads-up. Applies to the next session you start, not one already running.</span></label>
+    <input id="iw-session-warning" type="number" min="0" />
+  </div>
+  <div class="row"><button id="iw-reset" type="button">Reset to defaults</button><span id="iw-note" role="status"></span></div>
+</main><script src="options.js"></script></body></html>
